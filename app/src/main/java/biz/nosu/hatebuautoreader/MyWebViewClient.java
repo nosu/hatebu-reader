@@ -1,12 +1,18 @@
 package biz.nosu.hatebuautoreader;
 
+import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Created by inoue on 2015/03/31.
  */
 public class MyWebViewClient extends WebViewClient {
+    public Timer timer;
+
     @Override
     public boolean shouldOverrideUrlLoading(WebView view, String url) {
         return super.shouldOverrideUrlLoading(view, url);
@@ -15,23 +21,11 @@ public class MyWebViewClient extends WebViewClient {
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        try {
-            autoScroll(view, 1000, 100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+        timer = new Timer();
+        TimerTask timerTask = new TimerScrollTask(view, 30);
+        timer.scheduleAtFixedRate(timerTask, 10, 200);
     }
 
-    public void autoScroll(WebView view, long interval, int size) throws InterruptedException {
-        int contentHeight = view.getContentHeight();
-        int curY = view.getScrollY();
-//        while(size < contentHeight - curY) {
-            view.scrollBy(0, size);
-//        }
-        try {
-            Thread.sleep(interval);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
+    public void timer
+
 }

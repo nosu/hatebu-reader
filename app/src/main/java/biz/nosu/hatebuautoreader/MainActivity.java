@@ -7,9 +7,18 @@ import android.view.MenuItem;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
 
 public class MainActivity extends ActionBarActivity {
-    public static final String RSS_URL = "http://b.hatena.ne.jp/hotentry.rss"
+    public static final String RSS_URL = "http://b.hatena.ne.jp/hotentry.rss";
+    private static ArrayList<Item> sItemList = new ArrayList<Item>();
+
+    public void setItemList(ArrayList<Item> itemList) {
+        sItemList = itemList;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,7 +26,14 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
         WebView articleWebView = (WebView)findViewById(R.id.articleWebView);
         articleWebView.setWebViewClient(new MyWebViewClient());
-        articleWebView.loadUrl("http://slashdot.jp/");
+        URL url;
+        try {
+            url = new URL(RSS_URL);
+            RssParserTask task = new RssParserTask(this);
+            task.execute(url);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
