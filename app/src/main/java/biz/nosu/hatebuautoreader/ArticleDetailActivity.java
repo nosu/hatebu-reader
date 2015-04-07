@@ -26,9 +26,11 @@ public class ArticleDetailActivity extends ActionBarActivity {
         Bundle extras = i.getExtras();
         ArrayList<Article> articles = (ArrayList<Article>)extras.getSerializable("ARTICLES");
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_article_detail);
-        setSupportActionBar(toolbar);
+        Toolbar toolbarTop = (Toolbar) findViewById(R.id.toolbar_article_detail);
+        setSupportActionBar(toolbarTop);
         getSupportActionBar().setTitle(articles.get(0).getTitle());
+        getSupportActionBar().setSubtitle(articles.get(0).getUrl());
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         WebView articleWebView = (WebView)findViewById(R.id.articleWebView);
         articleWebView.setWebViewClient(new MyWebViewClient());
