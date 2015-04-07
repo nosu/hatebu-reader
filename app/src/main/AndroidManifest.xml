@@ -26,6 +26,30 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".SettingsTempActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="biz.nosu.hatebuautoreader.MainActivity" />
+        </activity>
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_setting"
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="biz.nosu.hatebuautoreader.MainActivity" />
+        </activity>
+        <activity
+            android:name=".BookmarkCommentActivity"
+            android:label="@string/title_activity_bookmark_comment"
+            android:parentActivityName=".ArticleDetailActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="biz.nosu.hatebuautoreader.ArticleDetailActivity" />
+        </activity>
     </application>
 
 </manifest>

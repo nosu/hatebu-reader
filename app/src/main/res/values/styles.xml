@@ -4,6 +4,7 @@
         <item name="colorPrimaryDark">@color/blue600</item>
         <item name="android:textColorPrimary">@color/white</item>
         <item name="android:textColorSecondary">@color/white</item>
+        <item name="android:actionMenuTextColor">@color/gray_medium</item>
 
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>

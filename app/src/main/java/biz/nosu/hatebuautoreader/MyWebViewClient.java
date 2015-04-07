@@ -21,9 +21,9 @@ public class MyWebViewClient extends WebViewClient {
     @Override
     public void onPageFinished(WebView view, String url) {
         super.onPageFinished(view, url);
-        timer = new Timer();
-        TimerTask timerTask = new TimerScrollTask(view, 500);
-        timer.scheduleAtFixedRate(timerTask, 2000, 2000);
+//        timer = new Timer();
+//        TimerTask timerTask = new TimerScrollTask(view, 500);
+//        timer.scheduleAtFixedRate(timerTask, 2000, 2000);
     }
 
     public void onReachEnd() {

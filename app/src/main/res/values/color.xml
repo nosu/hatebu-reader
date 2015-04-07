@@ -3,6 +3,7 @@
     <color name="blue500">#2196F3</color>
     <color name="blue600">#1E88E5</color>
     <color name="gray_bold">#333</color>
+    <color name="gray_medium">#666</color>
     <color name="gray_light">#888</color>
     <color name="white">#fff</color>
 </resources>
