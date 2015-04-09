@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 import android.text.Spannable;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
+import android.text.style.ForegroundColorSpan;
 import android.text.style.StyleSpan;
 import android.text.style.UnderlineSpan;
 import android.util.Log;
@@ -97,10 +98,15 @@ public class BookmarkCommentListAdapter extends ArrayAdapter<BookmarkComment> {
         }
 
         StyleSpan boldStyleSpan = new StyleSpan(Typeface.BOLD);
+        StyleSpan normalStyleSpan = new StyleSpan(Typeface.NORMAL);
+        ForegroundColorSpan grayStyleSpan = new ForegroundColorSpan(R.color.gray_medium);
         SpannableStringBuilder sb = new SpannableStringBuilder();
-        sb.append(bookmarkComment.getUser());
-        sb.setSpan(boldStyleSpan, 0, sb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        sb.append(bookmarkComment.getUser() + "  ");
+        int commentStartPosition = sb.length();
+        sb.setSpan(boldStyleSpan, 0, commentStartPosition, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         sb.append(bookmarkComment.getComment());
+        sb.setSpan(normalStyleSpan, commentStartPosition, sb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        sb.setSpan(grayStyleSpan, commentStartPosition, sb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         holder.commentTextView.setText(sb);
 
         Calendar cal = bookmarkComment.getTimestamp();

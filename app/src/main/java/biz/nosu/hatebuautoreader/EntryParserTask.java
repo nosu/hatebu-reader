@@ -36,51 +36,6 @@ public class EntryParserTask extends AsyncTask<String, Integer, ArrayList<Bookma
         ArrayList<BookmarkComment> bookmarkComments = new ArrayList<BookmarkComment>();
         Log.i("MainView", "EntryParser Start with URL: " + urls[0]);
 
-        Ion.with(MainActivity.getAppContext())
-                .load(ENTRY_API + urls[0])
-                .asJsonObject()
-                .setCallback(new FutureCallback<JsonObject>() {
-                    @Override
-                    public void onCompleted(Exception e, JsonObject result) {
-                        JsonArray bookmarks = result.get("bookmarks").getAsJsonArray();
-                        for(int i = 0; i < bookmarks.size(); i++) {
-                            JsonObject jsonBookmark = bookmarks.get(i).getAsJsonObject();
-
-                            // Get Timestamp
-                            String ts = jsonBookmark.get("timestamp").getAsString();
-                            Log.i("MainView", "timestamp: " + ts);
-                            Calendar timestamp = Calendar.getInstance();
-                            SimpleDateFormat sdf = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
-                            try {
-                                timestamp.setTime(sdf.parse(ts));
-                            } catch (ParseException e1) {
-                                e1.printStackTrace();
-                            }
-
-                            // Get Comment
-                            String comment = jsonBookmark.get("comment").getAsString();
-                            Log.i("MainView", "comment: " + comment);
-
-                            // Get Username
-                            String user = jsonBookmark.get("user").getAsString();
-
-                            // Get Tags
-                            JsonArray jsonTags = jsonBookmark.get("tags").getAsJsonArray();
-                            ArrayList<String> tags = new ArrayList<String>();
-                            for(int j = 0; j < jsonTags.size(); j++) {
-                                tags.add(jsonTags.get(j).getAsString());
-                            }
-
-                            if(!comment.isEmpty()) {
-                                BookmarkComment bookmarkComment = new BookmarkComment(timestamp, comment, user, tags);
-                                mComments.add(bookmarkComment);
-                            } else {
-                                Log.i("MainView", "comment is empty");
-                            }
-                        }
-                    }
-                });
-        Log.i("MainView", "mComments: " + mComments.toString());
         return mComments;
     }
 

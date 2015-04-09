@@ -12,14 +12,14 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="@dimen/favicon_layout_width"
+        android:layout_width="@dimen/user_icon_layout_width"
         android:layout_height="wrap_content"
         android:paddingTop="@dimen/favicon_padding_top">
 
         <ImageView
             android:id="@+id/hatenaIcon"
-            android:layout_width="@dimen/favicon_image_width"
-            android:layout_height="@dimen/favicon_image_width" />
+            android:layout_width="@dimen/user_icon_width"
+            android:layout_height="@dimen/user_icon_width" />
 
     </LinearLayout>
 
@@ -30,12 +30,10 @@
         android:layout_weight="10">
 
         <TextView
-            android:textSize="14sp"
-            android:textStyle="bold"
+            android:textSize="13sp"
             android:id="@+id/comment_text"
             android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:textColor="@color/gray_bold"/>
+            android:layout_width="match_parent" />
 
         <TextView
             android:textSize="12sp"

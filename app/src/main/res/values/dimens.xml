@@ -16,4 +16,8 @@
     <dimen name="favicon_image_margin">2dp</dimen>
     <dimen name="thumbnail_width">40dp</dimen>
     <dimen name="thumbnail_margin_left">6dp</dimen>
+
+    <dimen name="user_icon_layout_width">36dp</dimen>
+    <dimen name="user_icon_width">30dp</dimen>
+    <dimen name="user_icon_margin_right">2dp</dimen>
 </resources>
