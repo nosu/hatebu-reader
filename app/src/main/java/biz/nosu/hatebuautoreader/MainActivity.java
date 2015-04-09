@@ -28,9 +28,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_main);
-        toolbar.setTitle(R.string.app_name);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setTitle(R.string.app_name);
+        getSupportActionBar().setTitle(R.string.app_name);
 
         listView = (ListView)findViewById(R.id.articleListView);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {

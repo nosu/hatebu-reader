@@ -1,10 +1,15 @@
 <resources>
-    <string name="app_name">YAHBReader</string>
+    <string name="app_name">Hatebu Reader Light</string>
+
     <string name="action_comment">Comments</string>
+    <string name="action_add_bookmark">Add Bookmark</string>
     <string name="action_settings">Settings</string>
+
     <string name="title_article_detail">ArticleDetailActivity</string>
+    <string name="title_activity_bookmark_comment">BookmarkCommentActivity</string>
+    <string name="title_add_bookmark">Add Bookmark</string>
     <string name="title_activity_setting">SettingActivity</string>
+    <string name="title_activity_base">BaseActivity</string>
 
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_bookmark_comment">BookmarkCommentActivity</string>
 </resources>
